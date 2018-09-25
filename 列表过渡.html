@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表过渡</title>
+    <script src="http://vuejs.org/js/vue.js"></script>
+    <style>
+        .list-complete-enter, .list-complete-leave-to {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .item {
+            transition: all 1s;
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <button @click="add">Add</button>
+    <button @click="remove">Remove</button>
+    <transition-group mode="out-in" name="list-complete" tag="p">
+        <span v-for="item of list" :key="item" class="item">{{item}}</span>
+    </transition-group>
+</div>
+<script>
+
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            list: [1,2,3,4,5,6,7,8,9],
+            nextNum: 10
+        },
+        methods: {
+            randomIndex: function () {
+              return Math.floor(Math.random() * this.list.length)
+            },
+            add: function () {
+                 this.list.splice(this.randomIndex(), 0, this.nextNum++)
+            },
+            remove: function () {
+                this.list.splice(this.randomIndex(), 1)
+            }
+        }
+    })
+</script>
+</body>
+</html>

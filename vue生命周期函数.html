@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="http://vuejs.org/js/vue.js"></script>
+    <meta charset="utf-8">
+    <title>Vue 生命周期函数</title>
+</head>
+
+<body>
+<div id="app">
+
+</div>
+<script>
+    //生命周期含糊是就是vue实例在某一个时间点会自动实行的函数
+    var vm = new Vue({
+        el: "#app",
+        template: "<div>{{test}}</div>",
+        data: {
+          test: "Hello World"
+        },
+        beforeCreate: function () {
+            console.log("beforeCreate")
+        },
+        //初始化实例和生命周期后控制台自动打印出beforeCreate
+        created: function () {
+        console.log("created")
+        },
+        //初始化注入和双向绑定控制台自动打印出created
+        beforeMount: function () {
+            console.log(this.$el)
+            console.log("beforeMount")
+        },
+        //模板挂载之前输出的模板
+        mounted: function () {
+            console.log(this.$el)
+            console.log("mounted")
+        },
+        //模板挂载之后输出的模板
+        beforeDestroy: function () {
+            console.log("beforeDestroy")
+        },
+        // vm.$destroy()调用时，控制台打印beforeDestory
+        destroyed: function () {
+            console.log("destroyed")
+        },
+        //拆解组件，事件监听者后控制台打印出destroyed
+        beforeUpdate: function () {
+            console.log("beforeUpdate")
+        },
+        //执行vm.$data.test = "by world"后，控制台打印出beforeUpdate
+        updated: function () {
+            console.log("updated")
+        }
+        //页面重新渲染后，控制台打印出updated
+    })
+</script>
+</body>
+
+</html>

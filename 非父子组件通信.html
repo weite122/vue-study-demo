@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>非父子组件通信</title>
+    <script src="http://vuejs.org/js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <child content="Hello"></child>
+        <child content="World"></child>
+    </div>
+    <script>
+        Vue.prototype.bus = new Vue()
+
+        Vue.component('child', {
+            data: function () {
+                return {
+                    selfContent: this.content
+                }
+            },
+            props: {
+                content: String
+            },
+            template: '<div @click="handleClick">{{selfContent}}</div>',
+            methods: {
+                handleClick: function() {
+                    this.bus.$emit('change', this.selfContent)
+                }
+            },
+            mounted: function() {
+                this.bus.$on('change', (message) =>{
+                    this.selfContent = message
+                })
+            }
+        })
+
+        var vm = new Vue({
+            el: '#root'
+        })
+    </script>
+</body>
+</html>

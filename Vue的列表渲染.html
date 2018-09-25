@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的列表渲染</title>
+    <script src="http://vuejs.org/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for="(item, key, index) of userInformation">
+            {{key}} --- {{item}} --- {{index}}
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                userInformation: {
+                    name: "weite122",
+                    age: 18,
+                    gender: "male",
+                    hobby: "conding"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

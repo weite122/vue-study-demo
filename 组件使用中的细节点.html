@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://vuejs.org/js/vue.js"></script>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+</head>
+
+<body>
+    <div id="root">
+        <counter ref="countOne" @change="handleChange"></counter>
+        <counter ref="countTwo" @change="handleChange"></counter>
+        <div>{{total}}</div>
+    </div>
+<script>
+    Vue.component('counter', {
+        template: '<div @click="handleClick">{{number}}</div>',
+        data: function() {
+            return {
+                number: 0
+            }
+        },
+        methods: {
+            handleClick: function() {
+                this.number ++
+                this.$emit('change')
+            }
+        }
+    })
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            total: 0
+        },
+        methods: {
+            handleChange: function() {
+                this.total = this.$refs.countOne.number + this.$refs.countTwo.number
+            }
+        }
+    })
+</script>
+</body>
+
+</html>

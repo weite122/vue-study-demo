@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的条件渲染</title>
+    <script src="http://vuejs.org/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="show">
+            用户名： <input type="text" key="username">
+        </div>
+        <div v-else>
+            邮箱名：<input type="text" ey="password">
+        </div>
+        <!--当有了key值以后，他就是页面上唯一的元素，Vue就不会继续复用该元素的内容-->
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                show: false
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="http://vuejs.org/js/vue.js"></script>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+</head>
+
+<body>
+<div id="app">
+    <input type="text" v-model="inputValue">
+    <button v-on:click="handleBtnClick">submit</button>
+    <ul>
+        <todo-item :content="item"
+                   :index="index"
+                   v-for="(item, index) in list"
+                   @delete="handleItemDelete">
+        </todo-item>
+        <!--父组件delete会监听handleItemDelete事件。父组件将删除的列表的index通过v-bind传入到子组件-->
+    </ul>
+</div>
+<script>
+    var TodoItem = {
+        props: ['content', 'index'],
+        //子组件接收父组件的index
+        template: "<li @click='handleItemClick'>{{content}}</li>",
+        methods: {
+            handleItemClick: function () {
+                this.$emit("delete", this.index)
+            }
+            // 当点击子组件时，向上一层触发事件delete去监听父组件事件，并且把参数一并传入到父组件
+        }
+    }
+    var app = new Vue({
+        el: '#app',
+        components: {
+            TodoItem: TodoItem
+        },
+        data: {
+            list: [],
+            inputValue: ''
+        },
+        methods: {
+            handleBtnClick: function () {
+                this.list.push(this.inputValue)
+                this.inputValue = ''
+            },
+            handleItemDelete: function (index) {
+                this.list.splice(index, 1)
+            }
+            //父组件接收子组件传入的index
+        }
+    })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中的JS动画与Velocity.js的结合</title>
+    <script src="http://vuejs.org/js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+</head>
+<body>
+    <div id="root">
+        <transition
+            @before-enter="handleBeforeEnter"
+            @enter="handleEnter"
+            @after-enter="hanldeAfterEnter"
+            :css="false"
+        >
+            <div v-show="show">Hello World</div>
+        </transition>
+        <button @click="handleClick">Toggle</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                show: true
+            },
+            methods: {
+                handleClick: function () {
+                    this.show = !this.show
+                },
+                handleBeforeEnter: function (el) {
+                    el.style.opacity = 0
+                    el.style.transformOrigin = 'left'
+                },
+                handleEnter: function (el, done) {
+                    el.textContent = 'Animation Start'
+                    Velocity(el, {opacity: 1, fontSize: '1.5em'}, {duration: '300'})
+                    Velocity(el, {fontSize: '1em'}, {complete: done})
+                },
+                hanldeAfterEnter: function (el) {
+                    el.textContent = 'Animation End'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

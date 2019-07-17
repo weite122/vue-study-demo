@@ -18,11 +18,13 @@ export default [
   // 动态路由
   {
     path: '/argu/:name',
+    name: 'argu',
     component: () => import('@/views/argu.vue')
   },
   // 嵌套路由
   {
     path: '/parent',
+    name: 'parent',
     component: () => import('@/views/parent.vue'),
     children: [
       {

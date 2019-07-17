@@ -5,7 +5,10 @@ export default [
     path: '/',
     alias: '/home_page',
     name: 'home',
-    component: Home
+    component: Home,
+    props: route => ({
+      food: route.query.food
+    })
   },
   {
     path: '/about',

@@ -53,5 +53,9 @@ export default [
     redirect: to => {
       return 'home'
     }
+  },
+  {
+    path: '*',
+    component: () => import('@/views/error_404.vue')
   }
 ]

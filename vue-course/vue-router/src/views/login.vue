@@ -1,6 +1,6 @@
 <template>
   <div>
-    404-page
+    <h1>login page</h1>
   </div>
 </template>
 
@@ -13,4 +13,3 @@
 <style lang="scss" scoped>
 
 </style>
-  

@@ -1,15 +1,26 @@
 <template>
-  <div>
-    666666666
+  <div class="tel">
+    <p>{{ message }}</p>
   </div>
 </template>
 
 <script>
   export default {
-
+    data(){
+      return {
+        message: ''
+      }
+    },
+    mounted () {
+      this.$bus.$on('on-click', mes => {
+        this.message = mes
+      })
+    }
   }
 </script>
 
 <style lang="scss" scoped>
-
+.tel{
+  border: 1px solid green;
+}
 </style>

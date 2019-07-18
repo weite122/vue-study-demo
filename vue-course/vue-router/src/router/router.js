@@ -8,12 +8,12 @@ export default [
     component: Home,
     props: route => ({
       food: route.query.food
-    }),
-    beforeEnter: (to, from, next) => {
-      if (from.name === 'login') alert('这是从登录页来的')
-      else alert('这不是从登录页来的')
-      next()
-    }
+    })
+    // beforeEnter: (to, from, next) => {
+    //   if (from.name === 'login') alert('这是从登录页来的')
+    //   else alert('这不是从登录页来的')
+    //   next()
+    // }
   },
   {
     path: '/login',

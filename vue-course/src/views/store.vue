@@ -1,63 +1,86 @@
 <template>
   <div>
-    <a-input @input="handleInput"/>
+    <a-input @input="handleInput" />
     <!-- <p>{{ inputValue }} -> lastLetter is {{ inputValueLastLetter }}</p> -->
-      <!-- <h1>{{ appName }} appNameWithVersion: {{ appNameWithVersion }}</h1> -->
-      <h1>userName: {{ userName }}, firstLetter: {{ firstLetter }} </h1>
-      <!-- <a-show :content="inputValue"/> -->
+    <p>appName: {{ appName }} appNameWithVersion: {{ appNameWithVersion }}</p>
+    <p>userName: {{ userName }}, firstLetter: {{ firstLetter }}</p>
+    <!-- <a-show :content="inputValue"/> -->
+    <button @click="handleChangeAppName">修改appName</button>
+    <p>{{ appVersion }}</p>
+    <button @click="handleChangeUserName">修改用户名</button>
   </div>
 </template>
 
 <script>
-  import AInput from '_c/AInput.vue'
-  import AShow from '_c/AShow.vue'
+import AInput from "_c/AInput.vue";
+import AShow from "_c/AShow.vue";
 
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 
-  export default {
-    name: 'store',
-    data() {
-      return {
-        inputValue: ''
-      }
+export default {
+  name: "store",
+  data() {
+    return {
+      inputValue: ""
+    };
+  },
+  components: {
+    AInput, 
+    AShow
+  },
+  computed: {
+    // ...mapState({
+    //   appName: state => state.appName,
+    //   userName: state => state.user.userName
+    // })
+    appNameWithVersion() {
+      return this.$store.getters.appNameWithVersion;
     },
-    components: {
-      AInput,
-      AShow
+    ...mapState({
+      userName: state => state.user.userName,
+      appVersion: state => state.appVersion
+    }),
+    ...mapGetters(["appNameWithVersion", "firstLetter"]),
+    inputValueLastLetter() {
+      return this.inputValue.substr(-1, 1);
     },
-    computed: {
-      // ...mapState({
-      //   appName: state => state.appName,
-      //   userName: state => state.user.userName
-      // })
-      // appNameWithVersion() {
-      //   return this.$store.getters.appNameWithVersion
-      // },
-      ...mapState('user', {
-        userName: state => state.userName
-      }),
-      ...mapGetters('user',[
-        'firstLetter'
-      ]),
-      inputValueLastLetter(){
-        return this.inputValue.substr(-1, 1)
-      },
-      appName() {
-        return this.$store.state.appName
-      },
-      // userName() {
-      //   console.log()
-      //   return this.$store.state.user.userName
-      // }
+    appName() {
+      return this.$store.state.appName;
+    }
+    // userName() {
+    //   console.log()
+    //   return this.$store.state.user.userName
+    // }
+  },
+  methods: {
+    ...mapMutations([
+        "SET_APP_NAME",
+        "SET_USER_NAME",
+     ]),
+     ...mapActions([
+        "updateAppName"
+     ]),
+    handleInput(value) {
+      this.inputValue = value;
     },
-    methods: {
-      handleInput (value) {
-        this.inputValue = value
-      }
+    handleChangeAppName() {
+      //   this.$store.commit({
+      //     type: "SET_APP_NAME",
+      //     appName: "newAppName"
+      //   })
+    //   this.SET_APP_NAME({
+    //     appName: "newAppName"
+    //   });
+        this.updateAppName()
+
+      //   this.$store.commit("SET_APP_VERSION");
+    },
+    handleChangeUserName() {
+      this.SET_USER_NAME("vue-course");
     }
   }
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>

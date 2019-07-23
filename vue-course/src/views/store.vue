@@ -8,6 +8,8 @@
     <button @click="handleChangeAppName">修改appName</button>
     <p>{{ appVersion }}</p>
     <button @click="handleChangeUserName">修改用户名</button>
+    <button @click="registerModule">动态注册模块</button>
+    <p v-for="(item, index) in todolist" :key="index">{{ item }}</p>
   </div>
 </template>
 
@@ -38,7 +40,8 @@ export default {
     },
     ...mapState({
       userName: state => state.user.userName,
-      appVersion: state => state.appVersion
+      appVersion: state => state.appVersion,
+      todolist: state => state.user.todo ? state.user.todo.todolist : []
     }),
     ...mapGetters(["appNameWithVersion", "firstLetter"]),
     inputValueLastLetter() {
@@ -77,6 +80,16 @@ export default {
     },
     handleChangeUserName() {
       this.SET_USER_NAME("vue-course");
+    },
+    registerModule () {
+        this.$store.registerModule(["user", "todo"], {
+            state: {
+                todolist: [
+                    'xuexi',
+                    'gongzuo'
+                ]
+            }
+        })
     }
   }
 };

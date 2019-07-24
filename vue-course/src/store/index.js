@@ -10,12 +10,13 @@ import saveInLocal from './plugin/saveInLocal'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state,
-  getters,
-  mutations,
-  actions,
-  modules: {
-    user
-  },
-  plugins: [saveInLocal]
+    strict: process.env.NODE_ENV === 'development',
+    state,
+    getters,
+    mutations,
+    actions,
+    modules: {
+        user
+    },
+    plugins: [saveInLocal]
 })

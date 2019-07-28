@@ -1,7 +1,7 @@
 <template>
   <div>
-    <a-input @input="handleInput" />
-    <!-- <p>{{ inputValue }} -> lastLetter is {{ inputValueLastLetter }}</p> -->
+    <a-input :value="stateValue" @input="handleStateValueChange"/>
+    <p>{{ stateValue }} -> lastLetter is {{ inputValueLastLetter }}</p>
     <p>appName: {{ appName }} appNameWithVersion: {{ appNameWithVersion }}</p>
     <p>userName: {{ userName }}, firstLetter: {{ firstLetter }}</p>
     <!-- <a-show :content="inputValue"/> -->
@@ -41,7 +41,8 @@ export default {
     ...mapState({
       userName: state => state.user.userName,
       appVersion: state => state.appVersion,
-      todolist: state => state.user.todo ? state.user.todo.todolist : []
+      todolist: state => state.user.todo ? state.user.todo.todolist : [],
+      stateValue: state => state.stateValue
     }),
     ...mapGetters(["appNameWithVersion", "firstLetter"]),
     inputValueLastLetter() {
@@ -59,6 +60,7 @@ export default {
     ...mapMutations([
         "SET_APP_NAME",
         "SET_USER_NAME",
+        "SET_STATE_VALUE"
      ]),
      ...mapActions([
         "updateAppName"
@@ -90,6 +92,9 @@ export default {
                 ]
             }
         })
+    },
+    handleStateValueChange(val) {
+        this.SET_STATE_VALUE(val)
     }
   }
 };

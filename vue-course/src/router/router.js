@@ -40,6 +40,12 @@ export default [
     name: 'argu',
     component: () => import('@/views/argu.vue'),
     props: true
+  }, 
+   {
+    path: '/count-to',
+    name: 'count_to',
+    component: () => import('@/views/count-to.vue'),
+    props: true
   },
   // 嵌套路由
   {

@@ -58,8 +58,8 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.counter = new Countup(
-        "this.elementId",
+      this.counter = new CountUp(
+        this.elementId,
         this.startVal,
         this.endVal,
         this.decimals,

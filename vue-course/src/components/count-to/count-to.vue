@@ -1,16 +1,25 @@
 <template>
   <div>
-    <span :id="elementId"></span>
+    <slot name="left"></slot>
+    <span ref="number" :class="countClass" :id="elementId"></span>
+    <slot name="right"></slot>
   </div>
 </template>
 
 <script>
 import CountUp from "countup";
+import { setTimeout } from 'timers';
 export default {
   name: "CountTo",
   computed: {
     elementId() {
       return `count_up_${this._uid}`;
+    },
+    countClass () {
+        return [
+            'count-to-number',
+            this.className
+        ]
     }
   },
   data() {
@@ -54,8 +63,29 @@ export default {
     decimal: {
       type: String,
       default: "."
+    },
+    className: {
+        type: String,
+        default: ''
     }
   },
+  methods: {
+      getCount() {
+          return this.$refs.number.innerText
+      },
+      emitEndEvent() {
+          setTimeout(() => {
+              this.$emit('on-animation-end', Number(this.getCount()))
+          }, this.duration * 1000 + 5)
+      }
+  },
+  watch: {
+      endVal (newVal, oldVal) {
+          this.counter.update(newVal)
+          this.emitEndEvent()
+      }
+  },
+
   mounted() {
     this.$nextTick(() => {
       this.counter = new CountUp(
@@ -73,6 +103,7 @@ export default {
       );
       setTimeout(() => {
         this.counter.start();
+        this.emitEndEvent()
       }, this.delay);
     });
   }

@@ -1,6 +1,9 @@
 <template>
     <div class="split-pane-contain">
-        <split-pane :value="offset" @input="handleInput"></split-pane>
+        <split-pane :value.sync="offset">
+            <div slot="left">left</div>
+            <div slot="right">right</div>
+        </split-pane>
     </div>
 </template>
 
@@ -16,10 +19,10 @@
           }
       },
       methods: {
-          handleInput(value) {
-            this.offset = value
-            console.log(value)
-          }
+          // handleInput(value) {
+          //   this.offset = value
+          //   console.log(value)
+          // }
       }
     }
 </script>
@@ -28,6 +31,5 @@
     .split-pane-contain{
         width: 400px;
         height: 200px;
-        background: papayawhip;
     }
 </style>

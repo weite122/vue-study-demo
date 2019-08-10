@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="618ca79c-fccb-47aa-b902-90ddc0f89952" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/split-pane/split-pane.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/split-pane/split-pane.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/split-pane.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/split-pane.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/split-pane/split-pane.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+            <state relative-caret-position="80">
+              <caret line="112" column="35" lean-forward="true" selection-start-line="112" selection-start-column="35" selection-end-line="112" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -29,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/split-pane.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            <state relative-caret-position="382">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
@@ -44,16 +44,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/App.vue" />
-        <option value="$PROJECT_DIR$/src/components/split-pane/split-pane.vue" />
         <option value="$PROJECT_DIR$/src/views/split-pane.vue" />
+        <option value="$PROJECT_DIR$/src/components/split-pane/split-pane.vue" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="649" />
-    <option name="y" value="25" />
-    <option name="width" value="1083" />
-    <option name="height" value="689" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="width" value="1366" />
+    <option name="height" value="714" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -135,16 +133,15 @@
       <option name="presentableId" value="Default" />
       <updated>1563415861682</updated>
       <workItem from="1563415863749" duration="116000" />
-      <workItem from="1565268755839" duration="8552000" />
+      <workItem from="1565268755839" duration="11554000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8668000" />
+    <option name="totallyTimeSpent" value="11670000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="662" y="90" width="1083" height="689" extended-state="0" />
-    <editor active="true" />
+    <frame x="-91" y="15" width="1083" height="689" extended-state="0" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="npm" order="1" side_tool="true" />
@@ -159,7 +156,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003728" side_tool="true" weight="0.32993197" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49962714" weight="0.35071942" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49962714" weight="0.36510792" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -185,15 +182,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/split-pane.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        <state relative-caret-position="382">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/split-pane/split-pane.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+        <state relative-caret-position="80">
+          <caret line="112" column="35" lean-forward="true" selection-start-line="112" selection-start-column="35" selection-end-line="112" selection-end-column="35" />
         </state>
       </provider>
     </entry>

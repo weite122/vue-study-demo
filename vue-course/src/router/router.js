@@ -53,6 +53,12 @@ export default [
     component: () => import('@/views/split-pane.vue'),
     props: true
   },
+  {
+    path: '/menu-page',
+    name: 'menu_page',
+    component: () => import('@/views/menu-page.vue'),
+    props: true
+  },
   // 嵌套路由
   {
     path: '/parent',
